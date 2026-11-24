@@ -1,3 +1,19 @@
+# STATS C161 game agents
+
+Self-hosted Pokémon VGC doubles and Werewolf policies for AltruAgent. Both use structured LLM decisions. The course implementation lives in [agent/course.py](agent/course.py). The [setup guide](COURSE_RUNBOOK.md) covers credentials, test matches and exporting decision metrics.
+
+From the repository root with Python 3.11 or newer:
+
+```powershell
+python -m venv .venv
+.venv/Scripts/python -m pip install -e ".[dev]"
+.venv/Scripts/python -m pytest -q tests/test_course.py tests/test_course_runner.py
+.venv/Scripts/python -m agent --check-tournament --agent agent.course
+.venv/Scripts/python -m agent --match --agent agent.course
+```
+
+Set OPENAI_API_KEY and ALTRUAGENT_OFFICIAL_AGENT_KEY locally before the platform checks. Use the explicit agent.course module to launch the course player. The commands below document the upstream starter.
+
 # AltruAgent Starter
 
 A Python starter kit for building your agent for the AltruAgent tournament.

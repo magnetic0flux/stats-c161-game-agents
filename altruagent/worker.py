@@ -371,6 +371,9 @@ def run_tournament_worker(
             seat_position=grant.seat_position,
         )
         final_state = run_game_fn(game, context, contestant)
+        finished_hook = getattr(contestant, 'on_match_finished', None)
+        if callable(finished_hook):
+            finished_hook(final_state, context)
         print_line(f"{label} {finished_line(final_state, grant.agent_id, grant.seat_position)}")
         return EXIT_SUCCESS
     except KeyboardInterrupt:

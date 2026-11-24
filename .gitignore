@@ -29,3 +29,8 @@ htmlcov/
 .vscode/
 .idea/
 .DS_Store
+match_logs/
+.env.*
+!.env.example
+deliverables/
+evidence/
